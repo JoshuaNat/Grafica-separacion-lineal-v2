@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import (
      FigureCanvasTkAgg)
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, filedialog
 import numpy as np
 
 #Variable global para almacenar las coordenadas
 Xs = []
 
-
+def leer_archivo():
+    print("probando")
 
 def graficar_linea():
     texto1 = peso_1.get("1.0", "end-1c")
@@ -106,6 +107,8 @@ graficar = tk.Button(root, height=2, width=15, text="Graficar", command=lambda:g
 graficar.pack()
 resetear = tk.Button(root, height=2, width=15, text="Reiniciar", command=lambda:limpiar())
 resetear.pack()
+leer = tk.Button(root, height=2, width=15, text="Buscar archivo", command=lambda:leer_archivo())
+leer.pack()
  
 # Create Canvas
 canvas = FigureCanvasTkAgg(fig, master=root)  
