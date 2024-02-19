@@ -9,7 +9,19 @@ import numpy as np
 Xs = []
 
 def leer_archivo():
-    print("probando")
+    filename = filedialog.askopenfilename(initialdir="/",
+                                          title="Archivo de coordenadas",
+                                          filetypes = (("Text files",
+                                                        "*.txt*"),
+                                                       ("all files",
+                                                        "*.*")))
+    
+    try:
+        with open(filename) as f:
+            for linea in f:
+                print(linea)
+    except:
+        messagebox.showerror("Error al abrir el archivo")
 
 def graficar_linea():
     texto1 = peso_1.get("1.0", "end-1c")
