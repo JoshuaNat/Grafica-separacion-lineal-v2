@@ -19,9 +19,15 @@ def leer_archivo():
     try:
         with open(filename) as f:
             for linea in f:
-                print(linea)
+                coords = linea.split(",")
+                x = float(coords[0])
+                y = float(coords[1])
+                agregar_elementos(x, y)
     except:
         messagebox.showerror("Error al abrir el archivo")
+
+def agregar_elementos(coord_x, coord_y):
+    print(f"X: {coord_x}, Y:{coord_y}")
 
 def graficar_linea():
     texto1 = peso_1.get("1.0", "end-1c")
