@@ -20,10 +20,16 @@ def leer_archivo():
         with open(filename) as f:
             for linea in f:
                 coords = linea.split(",")
-                x = float(coords[0])
-                y = float(coords[1])
-                agregar_elementos(x, y)
-    except:
+                if (len(coords)==2):
+                    if (is_float(coords[0]) and is_float(coords[1])):
+                        x = float(coords[0])
+                        y = float(coords[1])
+                        agregar_elementos(x, y)
+                    else:
+                        continue
+                else:
+                    continue
+    except IOError:
         messagebox.showerror("Error al abrir el archivo")
 
 def agregar_elementos(coord_x, coord_y):
