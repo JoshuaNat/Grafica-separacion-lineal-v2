@@ -8,14 +8,7 @@ import numpy as np
 #Variable global para almacenar las coordenadas
 Xs = []
 
-def on_click(event):
-    if event.inaxes is not None:
-        #Agrega las coordenadas a la lista
-        Xs.append([1, event.xdata, event.ydata])
-        plt.plot(event.xdata, event.ydata, 'ok')
-        canvas.draw()
-    else:
-        messagebox.showwarning("Fuera del plano", "Por favor haga click dentro del plano cartesiano")
+
 
 def graficar_linea():
     texto1 = peso_1.get("1.0", "end-1c")
@@ -121,7 +114,6 @@ canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 # Plot data on Matplotlib Figure
 t = np.arange(0, 2*np.pi, .01)
 crear_grafica()
-fig.canvas.callbacks.connect('button_press_event', on_click)
 canvas.draw()
  
 root.mainloop()
