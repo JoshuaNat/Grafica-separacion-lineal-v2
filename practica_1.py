@@ -27,7 +27,9 @@ def leer_archivo():
         messagebox.showerror("Error al abrir el archivo")
 
 def agregar_elementos(coord_x, coord_y):
-    print(f"X: {coord_x}, Y:{coord_y}")
+    Xs.append([1, coord_x, coord_y])
+    plt.plot(coord_x, coord_y, "ok")
+    canvas.draw()
 
 def graficar_linea():
     texto1 = peso_1.get("1.0", "end-1c")
